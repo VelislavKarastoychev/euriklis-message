@@ -436,9 +436,8 @@ class Message {
      * white spaces to the text property of
      * the Message instance.
      */
-    append_white_space(n) {
-        new validator(n).not().is_number()
-            .on(true, () => n = 1)
+    append_white_space(n = 1) {
+        if (!Number.isInteger(n)) n = 1
         for (let i = 0; i < n; i++) this.text += ' '
         return this
     }
@@ -451,9 +450,8 @@ class Message {
      * white spaces before the text property
      * of the Message instance.
      */
-    prepend_white_space(n) {
-        new validator(n).not().is_number()
-            .on(true, () => n = 1)
+    prepend_white_space(n = 1) {
+        if (!Number.isInteger(n)) n = 1
         for (let i = 0; i < n; i++) this.text = ' ' + this.text
         return this
     }
