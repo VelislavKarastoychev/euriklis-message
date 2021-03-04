@@ -39,7 +39,8 @@ new message().bold().italic().underline().set_color_yellow()
 All the methods of the message class returns message object but makes changes on the text parameter of the instance.
 Every message instance has a text property, that is the result of the applied methods.
 In 03.03.2021 the current version was upgraded and a set of new methods, especially into the ground of the mathematics and symbols was added.
-- 
+
+- method bold:
 ```js 
 new message().bold()
 ``` 
@@ -49,7 +50,7 @@ makes the text that will be printed in the terminal after that to has bold style
 new message().append('This text will be bold...').bold()
     .reset().log()
 ```
-- 
+- method italic:
 ```js
 new message().italic()
 ``` 
@@ -59,7 +60,7 @@ new message().append('This text will be bold and italic...')
     .bold().italic()
     .reset().log()
 ```
-- 
+- method underline or underscore (?!?):
 ```js
  new message().underline() 
  // or 
@@ -71,12 +72,12 @@ new message().append('Underlined text')
     .underline().reset().log()
 ```
 
-- 
+- method blink:
 ```js
 new message().blink()
 ``` 
 the text that will be printed on the terminal will blink periodically.
-- 
+- method family setColor (set_color_black, set_color_green, set_color_red, set_color_yellow, set_color_violet, set_color_cyan and etc...):
 ```js
 /**
  * @param {string}color
@@ -95,18 +96,18 @@ new message().bold().italic().underline()
     .append('The file was successfully updated...')
     .reset().log()
 ```
-- 
+- method family setBgColor:
 ```js
 new message().setBgColor(color)
 ```
  sets the background color of the text message that will be printed on the terminal. The possible color values of the method are the same with the setColor() method. 
 
-- 
+- method reset: 
  ```js
  new message().reset()
  ```
  reset, restart the color/background color and style properties of the text to the default.This method has to be used to unset previous properties like bold, italic, underline. When we want to change the color, it is not necessary to use this method because the set_color_... will change the color automatically. For more detail see the example for the underline and bold method above.
- - 
+ - method family append/prepend:
  ```js
  /**
   * @param {string} text_message
@@ -118,7 +119,6 @@ new message().setBgColor(color)
  const message = require('@euriklis/message')
  new message().append('We appended a text').log()
  ```
- - 
  ```js
 append_check_mark()
 ```
@@ -145,36 +145,37 @@ append_check_mark()
              .reset().log()
      })
  ```
-- 
+
 ```js
 new message().append_not_check_mark()
 ```
 appends the not check mark symbol (&#x237B;) to the text property of the message instance. (prepend_not_check_mark() also exists).
-- 
+
 ```js
 new message().append_warning_sign() 
 ```
 appends a warning sign (&#x26A0;) to the text property of current the message instance.
-- 
+ 
 ```js
 new message().append_white_space() 
 ```
 appends an empty interval to the text property.
-- 
+- method log: 
 ```js
 new message().log() 
 ```
 prints the message on the terminal. 
-- 
+- method warn:
 ```js
 new message().warn()
 ```
 execute console.warn method to the text.
-- 
+- method error:
 ```js
 new message().error()
 ```
 execute console.error() method to the text property.
+- method info:
 ```js
 new message().info()
 ```
@@ -288,6 +289,21 @@ This is the rose symbol:🌹
 This is the euro symbol:€
 This is the question mark symbol:❓
 ```
+
+Note for the non console messages. The symbols that are supported of the message library can be used also in the html files or in the site text content. The only exception in this case is that the method family setColor(...) , setBgColor(...), error(), warn(), reset(), italic(), bold(), underline/underscore() and log() can not be used. If you want to put the obtained text content just get the text property of the message instance. The same issue is valid for the Error throwing , where for the throwing of error we simply have to get the text property. For example:
+```js
+const message = require('@euriklis/message')
+const error_message = new message().bold().italic()
+    .underline().set_color_yellow()
+    .append('Internal error message:\n').reset()
+    .set_color_red().append_warning_symbol()
+    .append_white_space().set_color_cyan()
+    .append('The file name that was created already exists ')
+    .append('so please select other name for your application.')
+    .reset().text
+throw new Error(error_message)
+``` 
+
 
 # Bugs and tips
 
