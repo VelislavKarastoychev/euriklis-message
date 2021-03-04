@@ -287,6 +287,7 @@ class Message {
     set_bgColor_black() {
         return this.setBgColor('black')
     }
+
     /**
      * 
      * @param {String} text the message that will be
@@ -298,6 +299,405 @@ class Message {
     append(text = '') {
         this.text += text
         return this
+    }
+    /**
+     * @method prepend
+     * @param {string} text
+     * @description this method put a text before the existing
+     * text parameter of the message instance. 
+     */
+    prepend (text = '') {
+        this.text = text + this.text
+        return this
+    }
+    /**
+     * @method append_copyright_symbol
+     * @description this method put the copyright symbol
+     * after the current text content of the message instance.
+     */
+    append_copyright_symbol() {
+        this.text += '\u00A9'
+        return this 
+    }
+    /**
+     * @method prepend_copyright_symbol
+     * @description this method put the copyright symbol
+     * before the text content of the current message instance.
+     */
+    prepend_copyright_symbol() {
+        this.text = '\u00A9' + this.text
+        return this
+    }
+    /**
+     * @method prepend_registered_symbol
+     * @description this method put the registered symbol
+     * before the text content of the current message instance.
+     */
+    prepend_registered_symbol() {
+        return this.prepend('\u00AE')
+    }
+    /**
+     * @method append_registered_symbol
+     * @description this method put the registered symbol
+     * after the text content of the current message instance.
+     */
+    append_registered_symbol() {
+        return this.append('\u00AE')
+    }
+    /**
+     * @method append_logical_not_symbol
+     * @description this method put the
+     * logical not symbol to the text content 
+     * of the current message instance.
+     */
+    append_logical_not_symbol() {
+        return this.append('\u00AC')
+    }
+    /**
+     * @method prepend_logical_not_symbol
+     * @description this method put the
+     * logical not symbol to the text content
+     * of the current message instance.
+     */
+    prepend_logical_not_symbol() {
+        return this.prepend('\u00AC')
+    }
+    /**
+     * @method append_logical_forAll_symbol
+     * @description this method appends the
+     * universal logical operator.
+     */
+    append_logical_forAll_symbol() {
+        return this.append('\u2200')
+    }
+    /**
+     * @method prepend_logical_forAll_symbol
+     * @description this method put in the
+     * beginning of the text content the 
+     * universal logical operator.
+     */
+    prepend_logical_forAll_symbol () {
+        return this.prepend('\u2200')
+    }
+    /**
+     * @method append_logical_exists_symbol
+     * @description this method put at the end of the
+     * text content the exists logical operator.
+     */
+    append_logical_exists_symbol() {
+        return this.append('\u2203')
+    }
+    /**
+     * @method prepend_logical_exists_symbol
+     * @description this method put in the beginning
+     * of the text content the exists logical operator.
+     */
+    prepend_logical_exists_symbol() {
+        return this.prepend('\u2203')
+    }
+    /**
+     * @method append_logical_conjunction_symbol
+     * @description this method puts the logical and
+     * operator in the end of the text content of the
+     * current message instance.
+     */
+    append_logical_conjunction_symbol () {
+        return this.append('\u22C0')
+    }
+    /**
+     * @method prepend_logical_conjunction_symbol
+     * @description this method puts in the beginning of
+     * the text content of the current message instance the
+     * logical and operator.
+     */
+    prepend_logical_conjunction_symbol() {
+        return this.prepend('\u22C0')
+    }
+    /**
+     * @method append_logical_disjunction_symbol
+     * @description this method puts in the end of the text
+     * content of the current message instance the logical or
+     * operator.
+     */
+    append_logical_disjunction_symbol () {
+        return this.append('\u22C1')
+    }
+    /**
+     * @method prepend_logical_disjunction_symbol
+     * @description this method puts in the beginning of the
+     * text content of the current message instance the logical 
+     * or operator.
+     */
+    prepend_logical_disjunction_symbol() {
+        return this.prepend('\u22C1')
+    }
+    /**
+     * @method append_logical_element_of_symbol
+     * @description this method puts in the end of
+     * the text content of the current message instance
+     * the logical element of operator.
+     */
+    append_logical_element_of_symbol () {
+        return this.append('\u2208')
+    }
+    /**
+     * @method prepend_logical_element_of_symbol
+     * @description this method puts in the beginning of
+     * the text content of the current message instance
+     * the logical element of operator.
+     */
+    prepend_logical_element_of_symbol(){
+        return this.prepend('\u2208')
+    }
+    append_logical_follows_symbol () {
+        return this.append('⇒')
+    }
+    prepend_logical_follows_symbol () {
+        return this.prepend('⇒')
+    }
+    append_logical_inverse_follows_symbol () {
+        return this.append('⇐')
+    }
+    prepend_logical_inverse_follows_symbol() {
+        return this.prepend('⇐')
+    }
+    append_logical_equivalence_symbol () {
+        return this.append('⇔')
+    }
+    prepend_logical_equivalence_symbol() {
+        return this.prepend('⇔')
+    }
+    append_logical_identical () {
+        return this.append('≡')
+    }
+    prepend_logical_identical() {
+        return this.prepend('≡')
+    }
+    append_logical_not_identical () {
+        return this.append('≢')
+    }
+    prepend_logical_not_identical() {
+        return this.prepend('≢')
+    }
+
+    append_math_natural_numbers_symbol () {
+        return this.append('ℕ')
+    }
+    prepend_math_natural_numbers_symbol () {
+        return this.prepend('ℕ')
+    }
+    append_math_partial_differential () {
+        return this.append('∂')
+    }
+    prepend_math_partial_differential () {
+        return this.prepend('∂')
+    }
+    append_math_empty_set() {
+        return this.append('∅')
+    }
+    prepend_math_empty_set() {
+        return this.prepend('∅')
+    }
+    append_math_increment() {
+        this.append('∆')
+    }
+    prepend_math_increment() {
+        this.prepend('∆')
+    }
+    append_math_nabla () {
+        return this.append('∇')
+    }
+    prepend_math_nabla () {
+        this.prepend('∇')
+    }
+    append_math_product_symbol() {
+        return this.append('∏')
+    }
+    prepend_math_product_symbol() {
+        return this.prepend('∏')
+    }
+    append_math_summation_symbol() {
+        return this.append('∑')
+    }
+    prepend_math_summation_symbol() {
+        return this.prepend('∑')
+    }
+    append_math_intersection_symbol() {
+        this.append('∩')
+    }
+    prepend_math_intersection_symbol() {
+        return this.prepend('∩')
+    }
+    append_math_union_symbol() {
+        return this.append('∪')
+    }
+    prepend_math_union_symbol() {
+        return this.prepend('∪')
+    }
+    append_math_integral_symbol() {
+        return this.append('∫')
+    }
+    prepend_math_integral_symbol() {
+        return this.prepend('∫')
+    }
+    append_double_integral_symbol() {
+        return this.append('∬')
+    }
+    prepend_double_integral_symbol() {
+        return this.prepend('∬')
+    }
+    append_math_triple_integral_symbol() {
+        return this.append('∭')
+    }
+    prepend_math_triple_integral_symbol() {
+        return this.prepend('∭')
+    }
+    append_math_proportional_symbol() {
+        return this.append('∝')
+    }
+    prepend_proportional_symbol() {
+        return this.prepend('∝')
+    }
+    append_math_infinity_symbol() {
+        return this.append('∞')
+    }
+    prepend_math_infinity_symbol() {
+        return this.prepend('∞')
+    }
+    append_math_contour_integral() {
+        return this.append('∮')
+    }
+    prepend_math_contour_integral() {
+        return this.prepend('∮')
+    }
+    append_math_volume_integral() {
+        return this.append('∰')
+    }
+    prepend_math_volume_integral() {
+        return this.prepend('∰')
+    }
+    append_math_almost_equal() {
+        return this.append('≈')
+    }
+    prepend_math_almost_equal() {
+        return this.prepend('≈')
+    }
+    append_math_almost_equal_or_equal() {
+        return this.append('≊')
+    }
+    prepend_math_almost_equal_or_equal() {
+        return this.prepend('≊')
+    }
+    append_math_estimates () {
+        return this.append('≙')
+    }
+    prepend_math_estimates() {
+        return this.prepend('≙')
+    }
+    append_math_equal_by_def () {
+        return this.append('≝')
+    }
+    prepend_math_equal_by_def () {
+        return this.prepend('≝')
+    }
+    append_math_sqrt_symbol() {
+        return this.append('√')
+    }
+    prepend_math_sqrt_symbol() {
+        return this.prepend('√')
+    }
+    append_math_cube_root_symbol() {
+        return this.append('∛')
+    }
+    prepend_math_cube_root_symbol() {
+        return this.prepend('∛')
+    }
+    append_math_forth_root_symbol() {
+        return this.append('∜')
+    }
+    prepend_math_forth_root() {
+        return this.prepend('∜')
+    }
+    append_math_subset_of_symbol() {
+        return this.append('⊂')
+    }
+    prepend_math_subset_of_symbol() {
+        return this.prepend('⊂')
+    }
+    append_math_superset_of_symbol () {
+        return this.append('⊃')
+    }
+    prepend_math_superset_of_symbol() {
+        return this.prepend('⊃')
+    }
+    append_hourglass_symbol () {
+        return this.append('⌛')
+    }
+    prepend_hourglass_symbol() {
+        this.prepend('⌛')
+    }
+    append_keyboard_symbol() {
+        return this.append('⌨')
+    }
+    prepend_keyboard_symbol() {
+        return this.prepend('⌨')
+    }
+    append_question_mark_ornament() {
+        return this.append('❓')
+    }
+    append_bitcoin_symbol () {
+        return this.append('₿')
+    }
+    prepend_bitcoin_symbol() {
+        return this.prepend('₿')
+    }
+    append_euro_symbol() {
+        return this.append('€')
+    }
+    prepend_euro_symbol() {
+        return this.prepend('€')
+    }
+    append_face_with_tears_of_joy () {
+        return this.append('😂')
+    }
+    prepend_face_with_tears_of_joy() {
+        return this.prepend('😂')
+    }
+    append_heard_symbol () {
+        return this.append('❤') 
+    }
+    prepend_heard_symbol() {
+        return this.prepend('❤')
+    }
+    append_corona_virus_symbol() {
+        return this.append('🦠')
+    }
+    prepend_corona_virus_symbol() {
+        return this.prepend('🦠')
+    }
+    append_ambulance_symbol() {
+        return this.append('🚑')
+    }
+    prepend_ambulance_symbol() {
+        return this.prepend('🚑')
+    }
+    append_potable_water_symbol() {
+        return this.append('🚰')
+    }
+    prepend_potable_water_symbol() {
+        return this.prepend('🚰')
+    }
+    append_face_with_medical_mask_symbol() {
+        return this.append('😷')
+    }
+    prepend_face_with_medical_mask_symbol() {
+        this.prepend('😷')
+    }
+    append_rose_symbol() {
+        return this.append('🌹')
+    }
+    prepend_rose_symbol() {
+        return this.prepend('🌹')
     }
     /**
      * @method append_not_check_mark()
