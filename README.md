@@ -82,9 +82,14 @@ new message().bold().set_color_yellow().setBgColor('red')
 ```
 and we have to take the following result in the terminal:
 
-<p>Some Markdown text with <span style="color:blue">some <em>blue</em> text</span>.</p>
-<p><div style = "color:yellow">∀ a, b : a ∈ ℕ ⋀ b ∈ ℕ ⇒ ∃ c : c ∈ ℕ ⋀ c ≡ a + b
-</div></p>
+
+<p>
+   <div style = "color:yellow;background-color:red;">
+   <em>
+   ∀ a, b : a ∈ ℕ ⋀ b ∈ ℕ ⇒ ∃ c : c ∈ ℕ ⋀ c ≡ a + b
+   </em>
+   </div>
+</p>
 
 # Bugs and tips
 
