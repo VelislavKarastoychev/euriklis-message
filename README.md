@@ -81,7 +81,7 @@ new message().bold().set_color_yellow().setBgColor('red')
     .append('a + b ').reset().log()
 ```
 and we have to take the following result in the terminal:
-<span style='background-color:#d73a49;color:yellow'> 
+<span style="background-color:red;color:yellow;"> 
 ∀ a, b : a ∈ ℕ ⋀ b ∈ ℕ ⇒ ∃ c : c ∈ ℕ ⋀ c ≡ a + b
 </span>
 
