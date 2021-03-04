@@ -36,7 +36,7 @@ new message().bold().italic().underline().set_color_yellow()
 
 ## message methods
 
-All the methods of the message class returns message object but makes changes on the text parameter of the instance.
+All the methods of the message class return message object, but make changes on the text parameter of the instance.So the architecture of the library allows you to chain the methods of the @euriklis/message library.
 Every message instance has a text property, that is the result of the applied methods.
 In 03.03.2021 the current version was upgraded and a set of new methods, especially into the ground of the mathematics and symbols was added.
 
