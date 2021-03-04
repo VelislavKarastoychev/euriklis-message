@@ -81,7 +81,10 @@ new message().bold().set_color_yellow().setBgColor('red')
     .append('a + b ').reset().log()
 ```
 and we have to take the following result in the terminal:
-<div class ='bg-red'> ∀ a, b : a ∈ ℕ ⋀ b ∈ ℕ ⇒ ∃ c : c ∈ ℕ ⋀ c ≡ a + b</div>
+<p class ='bg-red'> 
+∀ a, b : a ∈ ℕ ⋀ b ∈ ℕ ⇒ ∃ c : c ∈ ℕ ⋀ c ≡ a + b
+</p>
+
 # Bugs and tips
 
 If you want to inform me for something useful for this project or for some possible mistake or error, you can send me an email to exel_mmm@abv.bg or to euriklis@hotmail.com
