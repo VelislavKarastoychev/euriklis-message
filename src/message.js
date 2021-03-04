@@ -663,10 +663,10 @@ class Message {
     prepend_face_with_tears_of_joy() {
         return this.prepend('😂')
     }
-    append_heard_symbol () {
+    append_heart_symbol () {
         return this.append('❤') 
     }
-    prepend_heard_symbol() {
+    prepend_heart_symbol() {
         return this.prepend('❤')
     }
     append_corona_virus_symbol() {
