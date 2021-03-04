@@ -57,6 +57,31 @@ All the methods of the message class returns message object but makes changes on
 
 Note that the color, background color and style method are valid only in the node terminal environment.
 
+# More useful examples:
+
+Let say that we want to print a mathematical expression in formal logic. We can use the append_math_... and append_logic_... methods of the library.
+```js
+new message().bold().set_color_yellow().setBgColor('red')
+    .append_logical_forAll_symbol().append(' a, b : ')
+    .append('a ').append_logical_element_of_symbol()
+    .append_white_space().append_math_natural_numbers_symbol()
+    .append_white_space().append_logical_conjunction_symbol()
+    .append_white_space().append('b')
+    .append_white_space().append_logical_element_of_symbol()
+    .append_white_space().append_math_natural_numbers_symbol()
+    .append_white_space().append_logical_follows_symbol()
+    .append_white_space().append_logical_exists_symbol()
+    .append_white_space().append('c :')
+    .append_white_space().append('c ')
+    .append_logical_element_of_symbol()
+    .append_white_space().append_math_natural_numbers_symbol()
+    .append_white_space().append_logical_conjunction_symbol()
+    .append(' c').append_white_space()
+    .append_logical_identical().append_white_space()
+    .append('a + b ').reset().log()
+```
+and we have to take the following result in the terminal:
+![#f03c15] ∀ a, b : a ∈ ℕ ⋀ b ∈ ℕ ⇒ ∃ c : c ∈ ℕ ⋀ c ≡ a + b
 # Bugs and tips
 
 If you want to inform me for something useful for this project or for some possible mistake or error, you can send me an email to exel_mmm@abv.bg or to euriklis@hotmail.com
