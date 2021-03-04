@@ -6,7 +6,7 @@ The ***@euriklis/message*** or ***euriklis-message*** package is a javascript to
 
 # Installation
 
-To install the euriklis-validator package just run in the terminal the following command.
+To install the euriklis-message package just run in the terminal the following command.
 
 `npm install @euriklis/message --save --save-exact`
 
