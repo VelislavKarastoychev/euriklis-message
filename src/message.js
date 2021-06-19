@@ -1,4 +1,5 @@
 'use strict'
+import {version} from '../package.json';
 /**
  * @class Message
  * @description this class is a tool for
@@ -899,6 +900,5 @@ class Message {
         return this
     }
 }
-
-module.exports = Message
-
+Message.version = version;
+export default Message;
