@@ -31,7 +31,10 @@ new message().bold().italic().underline().set_color_yellow()
     .reset().set_color_red().append_warning_sign().set_color_yellow().append('The message library of the euriklis package prints error message for you.')
     .reset().log()
 ```
-
+From version 1.2.0 the package was rewritten in esm mode/patter. To declare the package you may use the code:
+```js
+import message from '@euriklis/message';
+```
 # Methods:
 
 ## message methods
@@ -44,10 +47,10 @@ In 03.03.2021 the current version was upgraded and a set of new methods, especia
 ```js 
 new message().bold()
 ``` 
-makes the text that will be printed in the terminal after that to has bold style. For example:
+makes the text which will be printed in the terminal after that to has bold style. For example:
 
 ```js
-new message().append('This text will be bold...').bold()
+new message().bold().append('This text will be bold...')
     .reset().log()
 ```
 - method italic:
@@ -56,8 +59,8 @@ new message().italic()
 ``` 
 makes the text that will be printed in the terminal with italic style. On the example that was shown above we can apply the italic method as well as the bold method.
 ```js
-new message().append('This text will be bold and italic...')
-    .bold().italic()
+new message().bold().italic()
+    .append('This text will be bold and italic...')
     .reset().log()
 ```
 - method underline or underscore (?!?):
@@ -68,8 +71,9 @@ new message().append('This text will be bold and italic...')
  ``` 
   this method makes the style of the text that will be printed on the terminal to be underlined.
 ```js
-new message().append('Underlined text')
-    .underline().reset().log()
+new message().underline()
+    .append('Underlined text')
+    .reset().log()
 ```
 
 - method blink:
