@@ -12,6 +12,8 @@ To install the euriklis-message package just run in the terminal the following c
 
 This command will add the package to your node_modules folder.
 
+Note that the version 1.2.0 is an esm mode of the library which is not stable. We do not recommend you to use this version. The version 1.2.1 is the latest cjs stable version, i.e. 1.0.8. 
+
 # Usage:
 
 To use the message library you have to get it from the package:
