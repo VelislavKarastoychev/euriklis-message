@@ -31,10 +31,6 @@ new message().bold().italic().underline().set_color_yellow()
     .reset().set_color_red().append_warning_sign().set_color_yellow().append('The message library of the euriklis package prints error message for you.')
     .reset().log()
 ```
-From version 1.2.0 the package was rewritten in esm mode/patter. To declare the package you may use the code:
-```js
-import message from '@euriklis/message';
-```
 # Methods:
 
 ## message methods
