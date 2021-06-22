@@ -1,10 +1,8 @@
 {
   "name": "@euriklis/message",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A javascript library which allows you to write style-designed messages, mathematical/logical expressions and special symbols in the terminal.",
-  "exports": "./index.js",
-  "type": "module",
-  "module": "./index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
@@ -24,8 +22,5 @@
     "url": "https://github.com/VelislavKarastoychev/euriklis-message/issues"
   },
   "homepage": "https://github.com/VelislavKarastoychev/euriklis-message#readme",
-  "dependencies": {},
-  "engines": {
-    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
-  }
+  "dependencies": {}
 }
