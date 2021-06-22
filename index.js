@@ -1,3 +1,3 @@
 'use strict'
-import message from './src/message';
-export default message;
+require = require('esm')(module);
+module.exports = require('./main.js');
