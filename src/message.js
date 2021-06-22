@@ -1,5 +1,5 @@
-'use strict'
-import {version} from '../package.json';
+// import {version} from '../package.json';
+const version = '1.2.0';
 /**
  * @class Message
  * @description this class is a tool for
