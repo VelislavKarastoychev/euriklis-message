@@ -1,5 +1,5 @@
 // import {version} from '../package.json';
-const version = '1.2.0';
+const version = require('../package.json');
 /**
  * @class Message
  * @description this class is a tool for
@@ -901,4 +901,4 @@ class Message {
     }
 }
 Message.version = version;
-export default Message;
+module.exports = Message;
