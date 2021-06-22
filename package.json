@@ -4,7 +4,7 @@
   "description": "A javascript library which allows you to write style-designed messages, mathematical/logical expressions and special symbols in the terminal.",
   "main": "index.js",
   "scripts": {
-    "start" : "node -r esm index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
