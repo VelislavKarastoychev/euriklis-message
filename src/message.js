@@ -1,5 +1,8 @@
 // import {version} from '../package.json';
-const version = require('../package.json');
+// const version = require('../package.json').version;
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+const version = require('../package.json').version;
 /**
  * @class Message
  * @description this class is a tool for
@@ -487,6 +490,7 @@ class Message {
     prepend_math_natural_numbers_symbol () {
         return this.prepend('ℕ')
     }
+    
     append_math_partial_differential () {
         return this.append('∂')
     }
@@ -499,17 +503,17 @@ class Message {
     prepend_math_empty_set() {
         return this.prepend('∅')
     }
-    append_math_increment() {
-        this.append('∆')
+    append_math_determinant() {
+        return this.append('∆')
     }
-    prepend_math_increment() {
-        this.prepend('∆')
+    prepend_math_determinant() {
+        return this.prepend('∆')
     }
     append_math_nabla () {
         return this.append('∇')
     }
     prepend_math_nabla () {
-        this.prepend('∇')
+        return this.prepend('∇')
     }
     append_math_product_symbol() {
         return this.append('∏')
@@ -524,7 +528,7 @@ class Message {
         return this.prepend('∑')
     }
     append_math_intersection_symbol() {
-        this.append('∩')
+        return this.append('∩')
     }
     prepend_math_intersection_symbol() {
         return this.prepend('∩')
@@ -541,10 +545,10 @@ class Message {
     prepend_math_integral_symbol() {
         return this.prepend('∫')
     }
-    append_double_integral_symbol() {
+    append_math_double_integral_symbol() {
         return this.append('∬')
     }
-    prepend_double_integral_symbol() {
+    prepend_math_double_integral_symbol() {
         return this.prepend('∬')
     }
     append_math_triple_integral_symbol() {
@@ -616,7 +620,7 @@ class Message {
     append_math_forth_root_symbol() {
         return this.append('∜')
     }
-    prepend_math_forth_root() {
+    prepend_math_forth_root_symbol() {
         return this.prepend('∜')
     }
     append_math_subset_of_symbol() {
@@ -635,7 +639,7 @@ class Message {
         return this.append('⌛')
     }
     prepend_hourglass_symbol() {
-        this.prepend('⌛')
+        return this.prepend('⌛')
     }
     append_keyboard_symbol() {
         return this.append('⌨')
@@ -645,6 +649,9 @@ class Message {
     }
     append_question_mark_ornament() {
         return this.append('❓')
+    }
+    prepend_question_mark_ornament() {
+        return this.prepend('❓');
     }
     append_bitcoin_symbol () {
         return this.append('₿')
@@ -692,7 +699,7 @@ class Message {
         return this.append('😷')
     }
     prepend_face_with_medical_mask_symbol() {
-        this.prepend('😷')
+        return this.prepend('😷')
     }
     append_rose_symbol() {
         return this.append('🌹')
@@ -708,7 +715,7 @@ class Message {
      * instance.
      */
     append_not_check_mark() {
-        this.text += '\u237b'
+        this.text += '\u237B';
         return this
     }
     /**
@@ -747,7 +754,6 @@ class Message {
     /**
      * @method append_ballot_box_with_check_mark()
      * @returns {Message}
-     * @deprecated
      * @description this method appends a check mark
      * in a box symbol to the text property of the
      * Message instance.
@@ -825,7 +831,7 @@ class Message {
      * Message instance.
      */
     prepend_warning_sign() {
-        this.text += '\u26A0' + this.text
+        this.text = '\u26A0' + this.text;
         return this
     }
     /**
@@ -901,4 +907,4 @@ class Message {
     }
 }
 Message.version = version;
-module.exports = Message;
+export default  Message;
