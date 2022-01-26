@@ -6,20 +6,20 @@ The ***@euriklis/message*** or ***euriklis-message*** package is a javascript to
 
 # Installation
 
-To install the euriklis-message package just run in the terminal the following command.
+To install the euriklis-message package just run the following command in the terminal.
 
 `npm install @euriklis/message --save --save-exact`
 
 This command will add the package to your node_modules folder.
 
-Note that the version 1.2.0 is an esm mode of the library which is not stable. We do not recommend you to use this version. The version 1.2.1 is the latest cjs stable version, i.e. 1.0.8. 
+The current version of the package is 2.0.0 and is written in esm mode (import/export).
 
 # Usage:
 
 To use the message library you have to get it from the package:
 
 ```js
-const message = require ('@euriklis/message')
+import message from '@euriklis/message';
 // print an information message:
 new message().bold().italic().underline().set_color_yellow()
     .append('Euriklis information message:\n')
@@ -37,15 +37,15 @@ new message().bold().italic().underline().set_color_yellow()
 
 ## message methods
 
-All the methods of the message class return message object, but make changes on the text parameter of the instance.So the architecture of the library allows you to chain the methods of the @euriklis/message library.
+All the methods of the message class return message object, but make changes to the text parameter of the instance. So the architecture of the library allows you to chain the methods of the @euriklis/message library.
 Every message instance has a text property, that is the result of the applied methods.
-In 03.03.2021 the current version was upgraded and a set of new methods, especially into the ground of the mathematics and symbols was added.
+In 03.03.2021 the current version was upgraded and a set of new methods, especially mathematical and logical symbols were added.
 
 - method bold:
 ```js 
 new message().bold()
 ``` 
-makes the text which will be printed in the terminal after that to has bold style. For example:
+makes the text which will be shown in the terminal after this method to appear in bold style. For example:
 
 ```js
 new message().bold().append('This text will be bold...')
@@ -55,7 +55,7 @@ new message().bold().append('This text will be bold...')
 ```js
 new message().italic()
 ``` 
-makes the text that will be printed in the terminal with italic style. On the example that was shown above we can apply the italic method as well as the bold method.
+makes the text which will be shown in the terminal in italic style. In the example which was shown above we can apply the italic method as well as the bold method.
 ```js
 new message().bold().italic()
     .append('This text will be bold and italic...')
@@ -67,7 +67,7 @@ new message().bold().italic()
  // or 
  new message().underscore()
  ``` 
-  this method makes the style of the text that will be printed on the terminal to be underlined.
+  this method makes the style of the text that will be shown in the terminal to be underlined.
 ```js
 new message().underline()
     .append('Underlined text')
@@ -78,7 +78,7 @@ new message().underline()
 ```js
 new message().blink()
 ``` 
-the text that will be printed on the terminal will blink periodically.
+the text that will be shown in the terminal will blink.
 - method family setColor (set_color_black, set_color_green, set_color_red, set_color_yellow, set_color_violet, set_color_cyan and etc...):
 ```js
 /**
@@ -86,10 +86,10 @@ the text that will be printed on the terminal will blink periodically.
  **/
 new message().setColor(color)
 ```
-sets the color of the text that will be printed on the terminal. The possible values of the color are 'black', 'red', 'green', 'blue', 'grey', 'violet', 'cyan' and finally 'yellow'. We recommend you to use the more user-friendly methods set_color_red, set_color_cyan and etc...
-For example, let say that we want to print an info message to the terminal with underlined yellow bold style and the content of the information message to be cyan color, then we have to write:
+sets the color of the text which will be shown in the terminal. The possible values of the color are 'black', 'red', 'green', 'blue', 'grey', 'violet', 'cyan' and 'yellow'. We recommend you to use the more user-friendly methods set_color_red, set_color_cyan and etc...
+For example, let us say that we want to write an info message to the terminal with underlined yellow bold style and the content of the information message to be in cyan color, then we have to write:
 ```js
-const message = require('@euriklis/message')
+import message from '@euriklis/message';
 new message().bold().italic().underline()
     .set_color_yellow() // or setColor('yellow')
     .append('Information message:\n')
@@ -102,13 +102,13 @@ new message().bold().italic().underline()
 ```js
 new message().setBgColor(color)
 ```
- sets the background color of the text message that will be printed on the terminal. The possible color values of the method are the same with the setColor() method. 
+ sets the background color of the text message that will be shown in the terminal. The possible color values of the method are the same with the setColor() method. 
 
 - method reset: 
  ```js
  new message().reset()
  ```
- reset, restart the color/background color and style properties of the text to the default.This method has to be used to unset previous properties like bold, italic, underline. When we want to change the color, it is not necessary to use this method because the set_color_... will change the color automatically. For more detail see the example for the underline and bold method above.
+ reset, restart the color/background color and style properties of the text to the default.This method has to be used to unset previous properties like bold, italic, underline. When we want to change the color, it is not necessary to use this method because the set_color_... will change the color automatically. For more details, see the example for the underline and bold method above.
  - method family append/prepend:
  ```js
  /**
@@ -294,23 +294,26 @@ This is the question mark symbol:❓
 
 Note for the non console messages. The symbols that are supported of the message library can be used also in the html files or in the site text content. The only exception in this case is that the method family setColor(...) , setBgColor(...), error(), warn(), reset(), italic(), bold(), underline/underscore() and log() can not be used. If you want to put the obtained text content just get the text property of the message instance. The same issue is valid for the Error throwing , where for the throwing of error we simply have to get the text property. For example:
 ```js
-const message = require('@euriklis/message')
-const error_message = new message().bold().italic()
+import message from '@euriklis/message';
+const error = new Error(); 
+error.name = new message().bold().italic()
     .underline().set_color_yellow()
-    .append('Internal error message:\n').reset()
-    .set_color_red().append_warning_symbol()
+    .append('Internal error message:\n').reset().text;
+
+error.message = new message().set_color_red()
+    .append_warning_symbol()
     .append_white_space().set_color_cyan()
     .append('The file name that was created already exists ')
     .append('so please select other name for your application.')
-    .reset().text
-throw new Error(error_message)
+    .reset().text;
+throw error;
 ``` 
 
 
 # Bugs and tips
 
-If you want to inform me for something useful for this project or for some possible mistake or error, you can send me an email to exel_mmm@abv.bg or to euriklis@hotmail.com
+If you want to inform me for something useful for this project or for some possible mistake, you can send me an email to exel_mmm@abv.bg or to euriklis@hotmail.com
 
 # License
 
-This project has MIT license. Everyone that use it has to know that the author of the project is not responsible for any third party software or hardware harms that follows from the using of this library. The package is free to use supposing that the it will be not part of some commercial software or hardware product.
+This project has MIT license. Everyone who uses it must know that the author may not be held liable for any third party software and hardware caused damages.
