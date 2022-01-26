@@ -2,6 +2,7 @@
   "name": "@euriklis/message",
   "version": "1.2.1",
   "description": "A javascript library which allows you to write style-designed messages, mathematical/logical expressions and special symbols in the terminal.",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
