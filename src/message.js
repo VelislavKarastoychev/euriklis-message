@@ -1,8 +1,11 @@
 // import {version} from '../package.json';
 // const version = require('../package.json').version;
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-const version = require('../package.json').version;
+import path from 'path';
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const version = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8')).version;
 /**
  * @class Message
  * @description this class is a tool for
