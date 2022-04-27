@@ -1,11 +1,6 @@
-// import {version} from '../package.json';
-// const version = require('../package.json').version;
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const version = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8')).version;
+'use strict';
+const author = 'Velislav S. Karastoychev';
+const version = '2.0.2'; 
 /**
  * @class Message
  * @description this class is a tool for
@@ -909,5 +904,6 @@ class Message {
         return this
     }
 }
+Message.author = author;
 Message.version = version;
 export default  Message;
