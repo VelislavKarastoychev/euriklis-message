@@ -1,6 +1,8 @@
 'use strict';
 const author = 'Velislav S. Karastoychev';
 const version = '2.0.2'; 
+const regexTest = /^rgb\((25[0-5]|2[0-4]\d|1\d{2}|\d{1,2}),\s*(25[0-5]|2[0-4]\d|1\d{2}|\d{1,2}),\s*(25[0-5]|2[0-4]\d|1\d{2}|\d{1,2})\)$/;
+const colors = ['black', 'red', 'green', 'yellow', 'blue', 'violet', 'cyan', 'grey'];
 /**
  * @class Message
  * @description this class is a tool for
@@ -13,6 +15,7 @@ const version = '2.0.2';
  * Every instance of this class has only one
  * property - i.e. the text property.
  */
+
 class Message {
     /**
      * 
@@ -98,14 +101,23 @@ class Message {
      * text message that has to be printed on the terminal.
      */
     setColor(color = '\x1b[0m') {
+        const colorError = new Error();
+        colorError.name = '@euriklis/message package color error';
+        colorError.message = `Incorrect color type or value. The color which may be used are ${colors.join(' ')} or some arbitrary rgb value`;
         if (color === 'black') color = '\x1b[30m'
-        if (color === 'red') color = '\x1b[31m'
-        if (color === 'green') color = '\x1b[32m'
-        if (color === 'yellow') color = '\x1b[33m'
-        if (color === 'blue') color = '\x1b[34m'
-        if (color === 'violet') color = '\x1b[35m'
-        if (color === 'cyan') color = '\x1b[36m'
-        if (color === 'grey') color = '\x1b[37m'
+        else if (color === 'red') color = '\x1b[31m'
+        else if (color === 'green') color = '\x1b[32m'
+        else if (color === 'yellow') color = '\x1b[33m'
+        else if (color === 'blue') color = '\x1b[34m'
+        else if (color === 'violet') color = '\x1b[35m'
+        else if (color === 'cyan') color = '\x1b[36m'
+        else if (color === 'grey') color = '\x1b[37m';
+        else if (typeof color === 'string') {
+            if (regexTest.test(color)) {
+                const [r, g, b] = color.match(/\d{1,3}]/g)
+                this.text += `\x1b[38;2;${r};${g};${b}m%s`;
+            } else throw colorError
+        } else throw colorError;
         this.text += color
         return this
     }
@@ -194,7 +206,7 @@ class Message {
     }
     /**
      * 
-     * @param {String} bgcolor a string
+     * @param {String} bgColor a string
      * value that has to be a valid console
      * color. The valid colors that can be
      * used form the user are the following:
@@ -205,16 +217,25 @@ class Message {
      * color of the text message to the required value
      * from the user.
      */
-    setBgColor(bgcolor = '\x1b[0m') {
-        if (bgcolor === 'black') bgcolor = '\x1b[40m'
-        if (bgcolor === 'red') bgcolor = '\x1b[41m'
-        if (bgcolor === 'green') bgcolor = '\x1b[42m'
-        if (bgcolor === 'yellow') bgcolor = '\x1b[43m'
-        if (bgcolor === 'blue') bgcolor = '\x1b[44m'
-        if (bgcolor === 'violet') bgcolor = '\x1b[45m'
-        if (bgcolor === 'cyan') bgcolor = '\x1b[46m'
-        if (bgcolor === 'grey') bgcolor = '\x1b[47m'
-        this.text += bgcolor
+    setBgColor(bgColor = '\x1b[0m') {
+        const bgColorError = new Error();
+        bgColorError.name = '@euriklis/message library background color error message';
+        bgColorError.message = `Incorrect color type in the setBgColor method. The parameter has to be equal to some of the values ${colors.join(' ')}`;
+        if (bgColor === 'black') bgColor = '\x1b[40m'
+        else if (bgColor === 'red') bgColor = '\x1b[41m'
+        else if (bgColor === 'green') bgColor = '\x1b[42m'
+        else if (bgColor === 'yellow') bgColor = '\x1b[43m'
+        else if (bgColor === 'blue') bgColor = '\x1b[44m'
+        else if (bgColor === 'violet') bgColor = '\x1b[45m'
+        else if (bgColor === 'cyan') bgColor = '\x1b[46m'
+        else if (bgColor === 'grey') bgColor = '\x1b[47m'
+        else if (typeof bgColor === 'string') {
+            if (regexTest.test(bgColor)) {
+                const [r, g, b] = bgColor.match(/\d{1,3}/g);
+                this.text += `\x1b[48;2;${r};${g};${b}m%s`;
+            } else bgColorError;
+        } else throw bgColorError;
+        this.text += bgColor
         return this
     }
     /**
