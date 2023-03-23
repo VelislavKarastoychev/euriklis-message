@@ -31,7 +31,8 @@ class Message {
      * an empty string. 
      */
     constructor(message = '') {
-        this.text = message
+        this.text = message;
+        this.styles = '';
     }
     /**
      * @method reset()
@@ -39,8 +40,8 @@ class Message {
      * of the color and background color of the text. 
      */
     reset() {
-        this.text += '\x1b[0m'
-        return this
+        this.styles = '\x1b[0m'
+        return this;
     }
     /**
      * @method bold()
@@ -48,7 +49,7 @@ class Message {
      * message with bold style. 
      */
     bold() {
-        this.text += '\x1b[1m'
+        this.styles += '\x1b[1m'
         return this
     }
     /**
@@ -57,11 +58,11 @@ class Message {
      * text style to italic.
      */
     italic() {
-        this.text += '\x1b[3m'
+        this.styles += '\x1b[3m'
         return this
     }
     blink() {
-        this.text += '\x1b[5m'
+        this.styles += '\x1b[5m'
         return this
     }
     /**
@@ -70,7 +71,7 @@ class Message {
      * of the text machine - like (<tt> - tag).
      */
     machine() {
-        this.text += '\x1b[2m'
+        this.styles += '\x1b[2m'
         return this
     }
     /**
@@ -80,7 +81,7 @@ class Message {
      * the text of an message.
      */
     underscore() {
-        this.text += '\x1b[4m'
+        this.styles += '\x1b[4m'
         return this
     }
     /**
@@ -114,11 +115,11 @@ class Message {
         else if (color === 'grey') color = '\x1b[37m';
         else if (typeof color === 'string') {
             if (regexTest.test(color)) {
-                const [r, g, b] = color.match(/\d{1,3}]/g)
-                this.text += `\x1b[38;2;${r};${g};${b}m%s`;
+                const [r, g, b] = color.match(/\d{1,3}/g)
+                color = `\x1b[38;2;${r};${g};${b}m`;
             } else throw colorError
         } else throw colorError;
-        this.text += color
+        this.styles += color;
         return this
     }
     /**
@@ -232,10 +233,10 @@ class Message {
         else if (typeof bgColor === 'string') {
             if (regexTest.test(bgColor)) {
                 const [r, g, b] = bgColor.match(/\d{1,3}/g);
-                this.text += `\x1b[48;2;${r};${g};${b}m%s`;
+                bgColor = `\x1b[48;2;${r};${g};${b}m`;
             } else bgColorError;
         } else throw bgColorError;
-        this.text += bgColor
+        this.styles += bgColor
         return this
     }
     /**
@@ -320,7 +321,7 @@ class Message {
      * property of the Message instance.
      */
     append(text = '') {
-        this.text += text
+        this.text += `${this.styles}${text}\x1b[0m`;
         return this
     }
     /**
@@ -468,13 +469,24 @@ class Message {
      * @description this method puts in the beginning of
      * the text content of the current message instance
      * the logical element of operator.
+     * @returns {Message}
      */
     prepend_logical_element_of_symbol(){
         return this.prepend('\u2208')
     }
+    /**
+     * @description this method appends
+     * to the end of the text property.
+     * @returns {Message}
+     */
     append_logical_follows_symbol () {
         return this.append('⇒')
     }
+    /**
+     * @description put in the beginning
+     * of the text message the symbol follows.
+     * @returns {Message}
+     */
     prepend_logical_follows_symbol () {
         return this.prepend('⇒')
     }
