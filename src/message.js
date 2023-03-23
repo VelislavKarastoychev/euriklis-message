@@ -331,7 +331,7 @@ class Message {
      * text parameter of the message instance. 
      */
     prepend (text = '') {
-        this.text = text + this.text
+        this.text = `${this.styles}${text}${this.text}\x1b[0m`;
         return this
     }
     /**
@@ -746,8 +746,7 @@ class Message {
      * instance.
      */
     append_not_check_mark() {
-        this.text += '\u237B';
-        return this
+        return this.append('\u237B');
     }
     /**
      * @method prepend_not_check_mark()
@@ -757,8 +756,7 @@ class Message {
      * property of the Message instance.
      */
     prepend_not_check_mark() {
-        this.text = '\u237b' + this.text
-        return this
+        return this.prepend('\u237b');
     }
     /**
      * @method append_check_mark()
@@ -768,8 +766,7 @@ class Message {
      * Message instance.
      */
     append_check_mark() {
-        this.text += '\u2713'
-        return this
+        return this.append('\u2713');
     }
     /**
      * @method prepend_check_mark()
@@ -779,8 +776,7 @@ class Message {
      * text property of the Message instance.
      */
     prepend_check_mark() {
-        this.text = '\u2713' + this.text
-        return this
+        return this.prepend('\u2713');
     }
     /**
      * @method append_ballot_box_with_check_mark()
@@ -790,8 +786,7 @@ class Message {
      * Message instance.
      */
     append_ballot_box_with_check_mark() {
-        this.text += '\u2611'
-        return this
+        return this.append('\u2611');
     }
     /**
      * @method prepend_ballot_box_with_check_mark()
@@ -801,8 +796,7 @@ class Message {
      * Message instance.
      */
     prepend_ballot_box_with_check_mark() {
-        this.text = '\u2611' + this.text
-        return this
+        return this.prepend('\u2611');
     }
     /**
      * @method append_white_heavy_check_mark()
@@ -811,8 +805,7 @@ class Message {
      * the text property of the Message instance.
      */
     append_white_heavy_check_mark() {
-        this.text += '\u2705'
-        return this
+        return this.append('\u2705');
     }
     /**
      * @method prepend_white_heavy_check_mark()
@@ -821,8 +814,7 @@ class Message {
      * before the text property of the Message instance.
      */
     prepend_white_heavy_check_mark() {
-        this.text = '\u2705' + this.text
-        return this
+        this.prepend('\u2705');
     }
     /**
      * @method append_heavy_check_mark()
@@ -831,8 +823,7 @@ class Message {
      * to the text property of the Message instance.
      */
     append_heavy_check_mark() {
-        this.text += '\u2714'
-        return this
+        this.append('\u2714');
     }
     /**
      * @method prepend_heavy_check_mark()
@@ -841,8 +832,7 @@ class Message {
      * mark to the text property of the Message instance.
      */
     prepend_heavy_check_mark() {
-        this.text = '\u2714' + this.text
-        return this
+        this.prepend('\u2714');
     }
     /**
      * @method append_warning_sign()
@@ -851,8 +841,7 @@ class Message {
      * symbol to the text property of the Message instance.
      */
     append_warning_sign() {
-        this.text += '\u26A0'
-        return this
+        this.append('\u26A0');
     }
     /**
      * @method prepend_warning_sign()
@@ -862,8 +851,7 @@ class Message {
      * Message instance.
      */
     prepend_warning_sign() {
-        this.text = '\u26A0' + this.text;
-        return this
+        this.prepend('\u26A0');
     }
     /**
      * 
@@ -875,9 +863,10 @@ class Message {
      * the Message instance.
      */
     append_white_space(n = 1) {
+        let text = '';
         if (!Number.isInteger(n)) n = 1
-        for (let i = 0; i < n; i++) this.text += ' '
-        return this
+        for (let i = 0; i < n; i++) text += ' '
+        return this.append(text);
     }
     /**
      * 
@@ -889,9 +878,10 @@ class Message {
      * of the Message instance.
      */
     prepend_white_space(n = 1) {
+        let text = '';
         if (!Number.isInteger(n)) n = 1
-        for (let i = 0; i < n; i++) this.text = ' ' + this.text
-        return this
+        for (let i = 0; i < n; i++) text += ' '
+        return this.prepend(text);
     }
     /**
      * @method log()
