@@ -2,11 +2,11 @@
 
 ## About the package:
 
-The ***@euriklis/message*** or ***euriklis-message*** package is a javascript tool that provide an utility library for colored console printing of messages with some additional properties like warning symbol, information symbol, check symbol or not check symbol. 
+The ***@euriklis/message*** package is a javascript tool that provide an utility library for colored console printing of messages with some additional properties like warning symbol, information symbol, check symbol or not check symbol. 
 
 # Installation
 
-To install the euriklis-message package just run the following command in the terminal.
+To install the @euriklis/message package just run the following command in the terminal.
 
 `npm install @euriklis/message --save --save-exact`
 
@@ -16,7 +16,7 @@ The current version of the package is 2.0.0 and is written in esm mode (import/e
 
 # Usage:
 
-To use the message library you have to get it from the package:
+To use the message library you have to import it to your file:
 
 ```js
 import message from '@euriklis/message';
@@ -86,7 +86,7 @@ the text that will be shown in the terminal will blink.
  **/
 new message().setColor(color)
 ```
-sets the color of the text which will be shown in the terminal. The possible values of the color are 'black', 'red', 'green', 'blue', 'grey', 'violet', 'cyan' and 'yellow'. We recommend you to use the more user-friendly methods set_color_red, set_color_cyan and etc...
+sets the color of the text which will be shown in the terminal. The possible values of the color are 'black', 'red', 'green', 'blue', 'grey', 'violet', 'cyan', 'yellow' and any arbitrary rgb color (typed as string). We recommend you to use the more user-friendly methods set_color_red, set_color_cyan and etc...
 For example, let us say that we want to write an info message to the terminal with underlined yellow bold style and the content of the information message to be in cyan color, then we have to write:
 ```js
 import message from '@euriklis/message';
