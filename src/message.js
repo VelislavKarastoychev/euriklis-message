@@ -814,7 +814,7 @@ class Message {
      * before the text property of the Message instance.
      */
     prepend_white_heavy_check_mark() {
-        this.prepend('\u2705');
+        return this.prepend('\u2705');
     }
     /**
      * @method append_heavy_check_mark()
@@ -823,7 +823,7 @@ class Message {
      * to the text property of the Message instance.
      */
     append_heavy_check_mark() {
-        this.append('\u2714');
+        return this.append('\u2714');
     }
     /**
      * @method prepend_heavy_check_mark()
@@ -832,7 +832,7 @@ class Message {
      * mark to the text property of the Message instance.
      */
     prepend_heavy_check_mark() {
-        this.prepend('\u2714');
+        return this.prepend('\u2714');
     }
     /**
      * @method append_warning_sign()
@@ -841,7 +841,7 @@ class Message {
      * symbol to the text property of the Message instance.
      */
     append_warning_sign() {
-        this.append('\u26A0');
+        return this.append('\u26A0');
     }
     /**
      * @method prepend_warning_sign()
@@ -851,7 +851,7 @@ class Message {
      * Message instance.
      */
     prepend_warning_sign() {
-        this.prepend('\u26A0');
+        return this.prepend('\u26A0');
     }
     /**
      * 
